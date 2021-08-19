@@ -1,4 +1,8 @@
 
+dev:
+	pip3 install -r requirements/develop.txt
+	pre-commit install
+
 build:
 	python setup.py build
 
