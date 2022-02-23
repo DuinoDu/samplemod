@@ -30,6 +30,13 @@ repos:
         entry: check-merge-conflict
         language: system
         types: [python]
+-   repo: local
+    hooks:
+    -   id: check-docstring-first
+        name: Check docstring first
+        entry: check-docstring-first
+        language: system
+        types: [python]
 # -   repo: local
 #     hooks:
 #     -   id: autoflake
@@ -57,4 +64,20 @@ repos:
         name: Check pep8.
         entry: flake8
         language: system
+        types: [python]
+-   repo: local
+    hooks:
+    -   id: pydocstyle
+        name: Check docstring.
+        entry: pydocstyle
+        language: system
+        exclude: (?x)(^tests/|^projects/)
+        types: [python]
+-   repo: local
+    hooks:
+    -   id: mypy
+        name: Check static typing.
+        entry: mypy
+        language: system
+        exclude: (?x)(^tests/|^projects/|^configs/|^dev/|^tools/|^plugins/)
         types: [python]
