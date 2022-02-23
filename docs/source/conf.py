@@ -21,6 +21,7 @@ extensions = [
     "sphinx.ext.ifconfig",
     # 'sphinx.ext.intersphinx',
     "sphinx.ext.viewcode",
+    "myst_parser",
 ]
 
 # intersphinx_mapping = {'python': ('http://docs.python.org/', None)}
@@ -34,7 +35,11 @@ linkcheck_ignore = [
 templates_path = ["_templates"]
 
 # The suffix of source filenames.
-source_suffix = ".rst"
+source_suffix = {
+    ".rst": "restructuredtext",
+    ".txt": "markdown",
+    ".md": "markdown",
+}
 
 # The encoding of source files.
 # source_encoding = 'utf-8-sig'
@@ -43,8 +48,8 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = u"Demo"
-copyright = u"2011-2016, Ryan Roemer"
+project = u"libname"
+copyright = u"2021-2022, USER"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -103,7 +108,7 @@ html_theme = "bootstrap"
 # documentation.
 html_theme_options = {
     # Navigation bar title. (Default: ``project`` value)
-    "navbar_title": "Demo",
+    "navbar_title": "libname",
     # Tab name for entire site. (Default: "Site")
     "navbar_site_name": "Site",
     # Tab name for the current pages TOC. (Default: "Page")
