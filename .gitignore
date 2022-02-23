@@ -52,10 +52,6 @@ tmp_*
 **/*.lmdb
 **/*.params
 
-# real3d related
-exp/
-real3d_viz_results/
-!projects/fsd/app/real3d/attribute/*.json
 
 # submit
 plugins/k8s_submit/*.yaml
@@ -64,26 +60,6 @@ plugins/k8s_submit/*.yaml
 *.orig
 
 # docs
-docs/build
+docs/_build
 !docs/Makefile
 !docs/source/_static/*.png
-
-# pilot release package
-projects/pilot/release_package
-projects/pilot/docs/hat
-
-# generated file
-hat/_version.py
-
-GNUmakefile
-
-# hbdk-model-verifier output
-hbmv_*
-
-# pt_inference
-!projects/fsd/inference/pt_inference/mt-6v/test.jpeg
-
-# fsd release package
-projects/fsd/app/.ipynb_checkpoints
-projects/fsd/docs/_build
-projects/fsd/docs/source/fsd_config
