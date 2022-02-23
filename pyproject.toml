@@ -1,5 +1,5 @@
 [tool.mypy]
-files = ["hat"]
+files = ["sample"]
 disallow_untyped_defs = "True"
 ignore_missing_imports = "True"
 show_error_codes = "True"
@@ -9,6 +9,7 @@ warn_unused_ignores = "True"
 allow_redefinition = "True"
 follow_imports = "silent"
 follow_imports_for_stubs = "True"
+exclude = []
 
 # TODO: Fix typing for these modules
 [[tool.mypy.overrides]]
@@ -19,6 +20,5 @@ ignore_errors = "True"
 
 [[tool.mypy.overrides]]
 module = [
-    "hat.utils.filesystem",
 ]
 ignore_errors = "False"
