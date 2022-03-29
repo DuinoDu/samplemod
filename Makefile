@@ -1,6 +1,8 @@
 # Makefile used to execute some commands locally
 
 env:
+	pip3 install -r requirements/build.txt
+	pip3 install -r requirements/test.txt
 	pip3 install -r requirements/develop.txt
 	pre-commit install
 
@@ -17,7 +19,7 @@ test:
 	pytest tests -s
 
 
-watch:
+watch-test:
 	ptw --runner "pytest tests -s"
 
 
@@ -37,21 +39,26 @@ pydocstyle:
 	pydocstyle --match-dir='(?!test|project).*'
 
 
-doc:
-	export PYTHONPATH=`pwd`:${PYTHONPATH}; \
-	cd docs && make html; \
-	cd ..
+build-doc:
+	python -m mkdocs build
 
+
+serve-doc:
+	mkdocs serve -a 0.0.0.0:5160
 
 clean-doc:
-	cd docs && make clean; \
-	cd ..
+	@rm -rf site
 
 
 wheel:
 	python3 setup.py sdist bdist_wheel; \
 	ls dist
 
+upload:
+	python setup.py bdist_wheel upload -r hobot-local
 
 clean-wheel:
-	rm -rf dist
+	@rm -rf dist
+
+clean: clean-wheel clean-doc
+	@rm -r build *.egg-info

@@ -12,15 +12,15 @@ with open("README.md", "r") as f:
 with open("LICENSE", "r") as f:
     license = f.read()
 
-with open("requirements.txt", "r") as f:
+with open("requirements/build.txt", "r") as f:
     requires = []
     for line in f:
         line = line.strip()
         if not line.startswith("#"):
             requires.append(line)
 
-with io.open("src/sample/__init__.py", "rt", encoding="utf8") as f:
-    version = re.search(r"__version__ = \'(.*?)\'", f.read()).group(1)
+with io.open("sample/__init__.py", "rt", encoding="utf8") as f:
+    version = re.search(r"__version__ = \"(.*?)\"", f.read()).group(1)
 
 setup(
     name="libname",
@@ -33,10 +33,9 @@ setup(
     license=license,
     platform="linux",
     zip_safe=False,
-    packages=find_packages("src"),
-    package_dir={"": "src"},
+    packages=find_packages(),
     include_package_data=True,
-    python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
+    python_requires=">=3.6",
     install_requires=requires,
     entry_points={"console_scripts": ["sample = sample.cli:main"]},
 )
