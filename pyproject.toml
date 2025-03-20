@@ -48,7 +48,7 @@ email = "duino472365351@gmail.com"
 
 [project.urls]
 documentation = "https://xxx"
-homepage = "https://"
+homepage = "https://xxx"
 repository = "https://github.com/user/sample"
 
 [project.scripts]
