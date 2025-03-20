@@ -1,9 +1,6 @@
 # Makefile used to execute some commands locally
 
 env:
-	pip3 install -r requirements/build.txt
-	pip3 install -r requirements/test.txt
-	pip3 install -r requirements/develop.txt
 	pre-commit install
 
 

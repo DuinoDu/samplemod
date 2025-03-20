@@ -1,8 +1,0 @@
-coverage
-pytest
-pytest-xdist
-pytest-pythonpath
-pytest-cov
-pytest-html
-pytest-repeat
-pytest-watch
